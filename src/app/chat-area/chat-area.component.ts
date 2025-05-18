@@ -9,20 +9,22 @@ import { FormsModule } from '@angular/forms';
   template: `
     <div class="chat-area">
       <div class="chat-messages">
-        <div class="message user-message">
-          Merhaba! Bugün nasıl yardımcı olabilirim?
-        </div>
+        <!-- Mevcut mesajlar buraya gelecek -->
       </div>
-      <div class="chat-input-wrapper">
-        <div class="chat-input-container">
+      <div class="chat-input-container">
+        <div class="input-wrapper">
           <input 
             type="text" 
             class="chat-input" 
             [(ngModel)]="message" 
             placeholder="Mesajınızı yazın..."
+            aria-label="Sohbet mesajı girişi"
           >
-          <button class="send-btn">
-            <i class="icon">➤</i>
+          <button class="send-button" aria-label="Mesaj gönder">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
           </button>
         </div>
       </div>
@@ -30,71 +32,76 @@ import { FormsModule } from '@angular/forms';
   `,
   styles: [`
     .chat-area {
-      flex-grow: 1;
       display: flex;
       flex-direction: column;
-      padding: 20px;
-      background-color: rgba(255, 255, 255, 0.1);
-      position: relative;
+      height: 100%;
+      background-color: #40E0D0;  /* Referanstaki arka plan rengi */
     }
 
     .chat-messages {
       flex-grow: 1;
       overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .message {
-      max-width: 70%;
-      margin: 10px 0;
-      padding: 10px 15px;
-      border-radius: 15px;
-      align-self: flex-start;
-    }
-
-    .user-message {
-      background-color: rgba(255, 255, 255, 0.5);
-      align-self: flex-end;
-    }
-
-    .chat-input-wrapper {
-      position: absolute;
-      bottom: 50%;
-      left: 50%;
-      transform: translate(-50%, 50%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      padding: 20px;
     }
 
     .chat-input-container {
       display: flex;
-      width: var(--input-width);
-      height: var(--input-height);
-      padding: 0 20px; /* Side padding as in the reference */
-      background-color: rgba(255, 255, 255, 0.3);
-      border-radius: 15px;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background-color: transparent;
+    }
+
+    .input-wrapper {
+      display: flex;
+      width: 100%;
+      max-width: 600px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .chat-input {
       flex-grow: 1;
+      padding: 15px 20px;
       border: none;
-      background: none;
-      padding: 0 15px;
+      background: transparent;
       font-size: 16px;
+      color: white;
       outline: none;
+      font-family: 'Arial', sans-serif;
     }
 
-    .send-btn {
-      width: 50px;
-      height: 100%;
-      border: none;
+    .chat-input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .send-button {
       background: none;
-      cursor: pointer;
+      border: none;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .send-button svg {
+      stroke: white;
+      transition: transform 0.2s ease;
+    }
+
+    .send-button:hover svg {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .input-wrapper {
+        max-width: 100%;
+        margin: 0 10px;
+      }
     }
   `]
 })
