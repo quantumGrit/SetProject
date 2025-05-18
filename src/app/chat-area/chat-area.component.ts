@@ -13,16 +13,18 @@ import { FormsModule } from '@angular/forms';
           Merhaba! Bugün nasıl yardımcı olabilirim?
         </div>
       </div>
-      <div class="chat-input-container">
-        <input 
-          type="text" 
-          class="chat-input" 
-          [(ngModel)]="message" 
-          placeholder="Mesajınızı yazın..."
-        >
-        <button class="send-btn">
-          <i class="icon">➤</i>
-        </button>
+      <div class="chat-input-wrapper">
+        <div class="chat-input-container">
+          <input 
+            type="text" 
+            class="chat-input" 
+            [(ngModel)]="message" 
+            placeholder="Mesajınızı yazın..."
+          >
+          <button class="send-btn">
+            <i class="icon">➤</i>
+          </button>
+        </div>
       </div>
     </div>
   `,
@@ -55,16 +57,23 @@ import { FormsModule } from '@angular/forms';
       align-self: flex-end;
     }
 
+    .chat-input-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      padding-bottom: 25px;
+    }
+
     .chat-input-container {
       display: flex;
+      width: var(--input-width);
       height: var(--input-height);
-      margin-top: 10px;
     }
 
     .chat-input {
       flex-grow: 1;
       border: none;
-      border-radius: 15px;
+      border-radius: 15px 0 0 15px;
       padding: 0 15px;
       background-color: var(--input-bg);
       margin-right: 10px;
@@ -79,6 +88,8 @@ import { FormsModule } from '@angular/forms';
       display: flex;
       align-items: center;
       justify-content: center;
+      border-radius: 0 15px 15px 0;
+      background-color: var(--input-bg);
     }
   `]
 })

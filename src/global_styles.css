@@ -1,10 +1,12 @@
 :root {
-  --gradient-start: #FFD700;  /* Golden Yellow */
-  --gradient-end: #FF6347;    /* Tomato Orange */
-  --sidebar-open-width: 120px;
-  --sidebar-closed-width: 20px;
-  --input-height: 30px;
-  --input-bg: #F0E68C;        /* Khaki light tone */
+  --gradient-start: #87CEEB;   /* Sky Blue */
+  --gradient-middle: #40E0D0;  /* Turquoise */
+  --gradient-end: #90EE90;     /* Light Green */
+  --sidebar-open-width: 200px;
+  --sidebar-closed-width: 35px;
+  --input-height: 50px;
+  --input-width: 250px;
+  --input-bg: #E0F0F0;         /* Soft, muted background */
 }
 
 body, html {
@@ -12,7 +14,15 @@ body, html {
   padding: 0;
   height: 100%;
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-middle), var(--gradient-end));
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
 }
 
 .app-container {
