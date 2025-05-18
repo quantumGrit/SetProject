@@ -1,0 +1,21 @@
+:root {
+  --gradient-start: #FFD700;  /* Golden Yellow */
+  --gradient-end: #FF6347;    /* Tomato Orange */
+  --sidebar-open-width: 120px;
+  --sidebar-closed-width: 20px;
+  --input-height: 30px;
+  --input-bg: #F0E68C;        /* Khaki light tone */
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+}
