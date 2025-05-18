@@ -35,6 +35,7 @@ import { FormsModule } from '@angular/forms';
       flex-direction: column;
       padding: 20px;
       background-color: rgba(255, 255, 255, 0.1);
+      position: relative;
     }
 
     .chat-messages {
@@ -58,38 +59,42 @@ import { FormsModule } from '@angular/forms';
     }
 
     .chat-input-wrapper {
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      transform: translate(-50%, 50%);
       display: flex;
       justify-content: center;
-      align-items: flex-end;
-      padding-bottom: 25px;
+      align-items: center;
     }
 
     .chat-input-container {
       display: flex;
       width: var(--input-width);
       height: var(--input-height);
+      padding: 0 20px; /* Side padding as in the reference */
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
     }
 
     .chat-input {
       flex-grow: 1;
       border: none;
-      border-radius: 15px 0 0 15px;
+      background: none;
       padding: 0 15px;
-      background-color: var(--input-bg);
-      margin-right: 10px;
+      font-size: 16px;
+      outline: none;
     }
 
     .send-btn {
-      width: var(--input-height);
-      height: var(--input-height);
+      width: 50px;
+      height: 100%;
       border: none;
       background: none;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 0 15px 15px 0;
-      background-color: var(--input-bg);
     }
   `]
 })
