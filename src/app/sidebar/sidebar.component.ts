@@ -6,59 +6,32 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="sidebar" [class.sidebar-open]="isOpen">
-      <button class="toggle-btn" (click)="toggleSidebar()">
-        <i class="icon">{{ isOpen ? '<<' : '>>' }}</i>
-      </button>
-      <button class="new-chat-btn" *ngIf="!isOpen">
-        <i class="icon">+</i>
-      </button>
-      <div class="sidebar-content" *ngIf="isOpen">
+    <div class="sidebar">
+      <div class="sidebar-content">
         <h3>Sohbetler</h3>
-        <!-- Add chat list here -->
+        <!-- Sohbet listesi buraya gelecek -->
       </div>
     </div>
   `,
   styles: [`
     .sidebar {
-      width: var(--sidebar-open-width);
       height: 100%;
       background-color: rgba(255, 255, 255, 0.2);
-      transition: width 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .sidebar.sidebar-open {
-      width: var(--sidebar-open-width);
-    }
-
-    .sidebar:not(.sidebar-open) {
-      width: var(--sidebar-closed-width);
-    }
-
-    .toggle-btn, .new-chat-btn {
-      position: absolute;
-      top: 10px;
-      left: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    .new-chat-btn {
-      top: 50px;
-    }
-
-    .sidebar-content {
       padding: 20px;
+      overflow-y: auto;
+    }
+
+    .sidebar-content h3 {
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        height: auto;
+        max-height: 200px;
+      }
     }
   `]
 })
-export class SidebarComponent {
-  isOpen = true;
-
-  toggleSidebar() {
-    this.isOpen = !this.isOpen;
-  }
-}
+export class SidebarComponent {}

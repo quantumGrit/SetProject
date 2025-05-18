@@ -35,7 +35,7 @@ import { FormsModule } from '@angular/forms';
       display: flex;
       flex-direction: column;
       height: 100%;
-      background-color: #40E0D0;  /* Referanstaki arka plan rengi */
+      background-color: #40E0D0;
     }
 
     .chat-messages {
@@ -49,6 +49,7 @@ import { FormsModule } from '@angular/forms';
       justify-content: center;
       align-items: center;
       padding: 20px;
+      margin-bottom: 25px;
       background-color: transparent;
     }
 
@@ -56,15 +57,16 @@ import { FormsModule } from '@angular/forms';
       display: flex;
       width: 100%;
       max-width: 600px;
+      height: 70px;
       background-color: rgba(255, 255, 255, 0.2);
-      border-radius: 30px;
+      border-radius: 35px;
       overflow: hidden;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .chat-input {
       flex-grow: 1;
-      padding: 15px 20px;
+      padding: 0 20px;
       border: none;
       background: transparent;
       font-size: 16px;
@@ -83,7 +85,7 @@ import { FormsModule } from '@angular/forms';
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 10px 15px;
+      padding: 0 15px;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
@@ -101,6 +103,11 @@ import { FormsModule } from '@angular/forms';
       .input-wrapper {
         max-width: 100%;
         margin: 0 10px;
+        height: 50px;
+      }
+
+      .chat-input-container {
+        margin-bottom: 10px;
       }
     }
   `]
