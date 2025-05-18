@@ -35,6 +35,7 @@ import { FormsModule } from '@angular/forms';
       display: flex;
       flex-direction: column;
       height: 100%;
+      position: relative;
       background-color: #40E0D0;
     }
 
@@ -42,22 +43,26 @@ import { FormsModule } from '@angular/forms';
       flex-grow: 1;
       overflow-y: auto;
       padding: 20px;
+      margin-bottom: 120px; /* Input alanı için alan bırak */
     }
 
     .chat-input-container {
+      position: absolute;
+      bottom: 25px; /* 25px alt boşluk */
+      left: 0;
+      right: 0;
       display: flex;
       justify-content: center;
-      align-items: center;
-      padding: 20px;
-      margin-bottom: 25px;
+      padding: 0 20px;
       background-color: transparent;
+      z-index: 10;
     }
 
     .input-wrapper {
       display: flex;
       width: 100%;
       max-width: 600px;
-      height: 70px;
+      height: 70px; /* 70px yükseklik */
       background-color: rgba(255, 255, 255, 0.2);
       border-radius: 35px;
       overflow: hidden;
@@ -107,7 +112,11 @@ import { FormsModule } from '@angular/forms';
       }
 
       .chat-input-container {
-        margin-bottom: 10px;
+        bottom: 10px;
+      }
+
+      .chat-messages {
+        margin-bottom: 80px;
       }
     }
   `]
